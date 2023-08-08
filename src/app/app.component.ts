@@ -49,13 +49,15 @@ export class AppComponent implements OnInit {
   }
 
   onSubmit() {
-    if (this.form.value.name || this.form.value.email) {
-      return;
-    }
-    if (this.form.value.check != this.checkNum.toString()) {
+    if (
+      this.form.value.name ||
+      this.form.value.email ||
+      this.form.value.check != this.checkNum.toString()
+    ) {
       return;
     } else {
- 
+      
+     
       this.messageService
         .getMessage(
           this.form.value.nameklm,
@@ -63,14 +65,14 @@ export class AppComponent implements OnInit {
           this.form.value.messageqtr
         )
         .subscribe((result) => {
-          console.log(result);
           this.display = true;
-          this.message = result.message;
+           this.message = 'Email sent successfully!';
+           this.form.reset();
+          // this.message = result.message;
           setTimeout(() => {
             this.message = '';
           }, 3000);
         });
-      this.form.reset();
     }
   }
 }
