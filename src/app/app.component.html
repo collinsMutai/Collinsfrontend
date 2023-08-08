@@ -310,17 +310,13 @@
             formControlName="email"
           />
           <!-- end honeypot -->
-         
+          
+         <input type="text" placeholder="12+7?" name="check" formControlName="check">
           <button type="submit" class="btn btn2" [disabled]="form.invalid">
             Send
           </button>
-           <!-- recaptcha -->
-          <ngx-recaptcha2
-            #captchaElem
-            [siteKey]="site_key"
-            formControlName="recaptcha"
-          >
-          </ngx-recaptcha2>
+          
+        
         </form>
         <span id="msg"></span>
       </div>

@@ -14,6 +14,7 @@ export class AppComponent implements OnInit {
   public site_key = environment.SITE_KEY;
   display = false;
   message!: any;
+  checkNum = 19;
   constructor(
     private renderer: Renderer2,
     public messageService: MailService
@@ -27,7 +28,7 @@ export class AppComponent implements OnInit {
       messageqtr: new FormControl(null, [Validators.required]),
       name: new FormControl(),
       email: new FormControl(),
-      recaptcha: new FormControl(['', Validators.required]),
+      check: new FormControl(null, [Validators.required]),
     });
   }
 
@@ -50,9 +51,11 @@ export class AppComponent implements OnInit {
   onSubmit() {
     if (this.form.value.name || this.form.value.email) {
       return;
+    }
+    if (this.form.value.check != this.checkNum.toString()) {
+      return;
     } else {
-      console.log('sent');
-
+ 
       this.messageService
         .getMessage(
           this.form.value.nameklm,

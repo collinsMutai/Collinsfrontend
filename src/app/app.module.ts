@@ -7,7 +7,7 @@ import { MatListModule } from '@angular/material/list';
 import { AppComponent } from './app.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
-import { NgxCaptchaModule } from 'ngx-captcha';
+
 
 
 @NgModule({
@@ -16,7 +16,6 @@ import { NgxCaptchaModule } from 'ngx-captcha';
     BrowserModule,
     ReactiveFormsModule,
     HttpClientModule,
-    NgxCaptchaModule,
     MatTabsModule,
     MatListModule,
   ],
